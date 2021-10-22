@@ -1,0 +1,11 @@
+{
+	"name": "parking_lot_system",
+	"version": "1.0.0",
+	"description": "Parking management System",
+	"main": "index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"author": "Faizy",
+	"license": "ISC"
+}
