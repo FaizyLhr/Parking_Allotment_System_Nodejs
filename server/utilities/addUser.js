@@ -1,5 +1,5 @@
-const UserModel = require("../../models/User");
-var emailService = require("../../utilities/emailService");
+const UserModel = require("../models/User");
+var emailService = require("./emailService");
 
 const addUser = async function (req, res) {
 	try {

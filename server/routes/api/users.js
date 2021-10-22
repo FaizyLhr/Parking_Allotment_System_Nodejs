@@ -2,7 +2,7 @@ const router = require("express").Router();
 
 const passport = require("passport");
 
-const addUser = require("../middleware/addUser");
+const addUser = require("../../utilities/addUser");
 
 const { isAdmin, isUser, isToken } = require("../auth");
 var emailService = require("../../utilities/emailService");

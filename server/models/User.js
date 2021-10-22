@@ -10,8 +10,6 @@ var crypto = require("crypto");
 const secretKey = "Faizy";
 
 const UserSchema = new mongoose.Schema({
-	slug: { type: String, unique: true, required: false, trim: true },
-
 	username: {
 		type: String,
 		lowercase: true,
@@ -24,15 +22,21 @@ const UserSchema = new mongoose.Schema({
 		unique: true,
 		required: [true, "can't be blank"],
 	},
-	userType: {
+	type: {
 		type: Number,
 		required: true,
 		default: 2,
 		enum: [1, 2], //1-admin 2-Student
 	},
+	phone: { type: Number, minlength: 9 },
+	address: {
+		city: String,
+		colony: { type: String, lowercase: true, trim: true },
+	},
 	otp: String,
 	otpExpires: Date,
 	passwordRestToken: String,
+	status: { type: Boolean, default: false },
 	isEmailVerified: { type: Boolean, default: false },
 	password: { type: String, minLength: 4, trim: true },
 });
@@ -125,6 +129,7 @@ UserSchema.methods.generatePasswordRestToken = function () {
 
 UserSchema.methods.setOTP = function () {
 	this.otp = otpGenerator.generate(6, {
+		alphabets: false,
 		upperCase: false,
 		specialChars: false,
 	});
@@ -137,13 +142,26 @@ UserSchema.methods.generateToken = function () {
 
 UserSchema.methods.toAuthJSON = function () {
 	return {
-		username: this.username,
-		slug: this.slug,
-		email: this.email,
-		userType: this.userType,
-		isEmailVerified: this.isEmailVerified,
-		password: this.password,
-		token: this.generateToken(),
+		user: {
+			username: this.username,
+			slug: this.slug,
+			email: this.email,
+			isEmailVerified: this.isEmailVerified,
+			token: this.generateToken(),
+		},
+	};
+};
+
+UserSchema.methods.toJSON = function () {
+	return {
+		user: {
+			username: this.username,
+			slug: this.slug,
+			email: this.email,
+			isEmailVerified: this.isEmailVerified,
+			status: this.status,
+			token: this.generateToken(),
+		},
 	};
 };
 

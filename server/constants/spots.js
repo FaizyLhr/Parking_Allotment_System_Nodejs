@@ -1,0 +1,23 @@
+const spots = [
+	{ isFree: true, spotNum: 1 },
+	{ isFree: true, spotNum: 2 },
+	{ isFree: true, spotNum: 3 },
+	{ isFree: true, spotNum: 4 },
+	{ isFree: true, spotNum: 5 },
+	{ isFree: true, spotNum: 6 },
+	{ isFree: true, spotNum: 7 },
+	{ isFree: true, spotNum: 8 },
+	{ isFree: true, spotNum: 9 },
+	{ isFree: true, spotNum: 10 },
+	{ isFree: true, spotNum: 11 },
+	{ isFree: true, spotNum: 12 },
+	{ isFree: true, spotNum: 13 },
+	{ isFree: true, spotNum: 14 },
+	{ isFree: true, spotNum: 15 },
+	{ isFree: true, spotNum: 16 },
+	{ isFree: true, spotNum: 17 },
+	{ isFree: true, spotNum: 18 },
+	{ isFree: true, spotNum: 19 },
+	{ isFree: true, spotNum: 20 },
+];
+module.exports = { spots };

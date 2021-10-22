@@ -1,12 +1,12 @@
 let router = require("express").Router();
 
 router.use("/", require("./users"));
-router.use("/", require("./author"));
-router.use("/", require("./book"));
-router.use("/", require("./order"));
+router.use("/", require("./floors"));
+router.use("/", require("./vehicles"));
+router.use("/", require("./bookings"));
 
-// router.use("/", (req, res) => {
-// 	res.send("API Home");
-// });
+router.use("/", (req, res) => {
+	res.send("API Home");
+});
 
 module.exports = router;
