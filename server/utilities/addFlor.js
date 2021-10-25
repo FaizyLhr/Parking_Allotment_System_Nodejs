@@ -16,7 +16,7 @@ const addFlor = async function (req, res) {
 	// Create floor in our database
 	let floor = FloorModel();
 	floor.numFloor = numFloor;
-	floor.spots = spot.spots;
+	floor.spots = spot;
 
 	floor.save((err, result) => {
 		if (!err) {

@@ -1,15 +1,16 @@
 const faker = require("faker");
 const User = require("../server/models/User");
 
-async function seedUser() {
+async function defaultUser() {
 	for (let i = 0; i < 100; i++) {
 		let newUser = new User();
 		newUser.username = faker.internet.userName();
 		newUser.email = faker.internet.email();
-		newUser.userType = faker.datatype.number({
-			min: 1,
-			max: 2,
-		});
+		newUser.phone = faker.phone.phoneNumber();
+		newUser.address = {
+			city: faker.address.city(),
+			colony: faker.address.streetPrefix(),
+		};
 		newUser.password = faker.internet.password();
 		// console.log(newUser);
 		await newUser.save();
@@ -17,4 +18,4 @@ async function seedUser() {
 	console.log("Users Seeded");
 }
 
-module.exports = seedUser;
+module.exports = defaultUser;

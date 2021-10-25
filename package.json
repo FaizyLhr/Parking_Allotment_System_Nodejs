@@ -4,7 +4,8 @@
 	"description": "Parking management System",
 	"main": "index.js",
 	"scripts": {
-		"test": "echo \"Error: no test specified\" && exit 1"
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"seed": "node ./seed"
 	},
 	"author": "Faizy",
 	"license": "ISC",
@@ -12,6 +13,7 @@
 		"bcrypt": "^5.0.1",
 		"crypto": "^1.0.1",
 		"express": "^4.17.1",
+		"faker": "^5.5.3",
 		"handlebars": "^4.7.7",
 		"jsonwebtoken": "^8.5.1",
 		"mongoose": "^6.0.12",

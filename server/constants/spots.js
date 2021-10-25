@@ -20,4 +20,4 @@ const spots = [
 	{ isFree: true, spotNum: 19 },
 	{ isFree: true, spotNum: 20 },
 ];
-module.exports = { spots };
+module.exports = spots;

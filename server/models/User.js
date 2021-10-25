@@ -28,17 +28,17 @@ const UserSchema = new mongoose.Schema({
 		default: 2,
 		enum: [1, 2], //1-admin 2-Student
 	},
-	phone: { type: Number, minlength: 9 },
+	phone: { type: String, minlength: 9 },
 	address: {
 		city: String,
 		colony: { type: String, lowercase: true, trim: true },
 	},
+	password: { type: String, minLength: 4, trim: true },
 	otp: String,
 	otpExpires: Date,
 	passwordRestToken: String,
 	status: { type: Boolean, default: false },
 	isEmailVerified: { type: Boolean, default: false },
-	password: { type: String, minLength: 4, trim: true },
 });
 
 UserSchema.pre("save", function (next) {

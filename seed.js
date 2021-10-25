@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
 mongoose
-	.connect("mongodb://localhost/LMS", {
+	.connect("mongodb://localhost/PLS", {
 		useNewUrlParser: true,
 		useUnifiedTopology: true,
 		// useFindAndModify: false,
@@ -16,19 +16,21 @@ mongoose
 		init();
 	});
 
+const defaultUser = require("./seeder/defaultUser");
 const user = require("./seeder/user");
-const author = require("./seeder/author");
-const book = require("./seeder/book");
-const order = require("./seeder/order");
+const floor = require("./seeder/floor");
+const vehicle = require("./seeder/vehicle");
+const booking = require("./seeder/booking");
 
 async function init() {
 	console.log("dropping DB");
 	await mongoose.connection.db.dropDatabase();
 
+	await defaultUser();
 	await user();
-	await author();
-	await book();
-	await order();
+	await floor();
+	await vehicle();
+	await booking();
 
 	exit();
 }

@@ -4,7 +4,6 @@ const slug = require("slug");
 const FloorSchema = new mongoose.Schema(
 	{
 		slug: { type: String, unique: true, required: true, trim: true },
-		addFloor: { type: Boolean, default: false },
 		numFloor: { type: Number, unique: true, required: true },
 		// Method 1
 		spots: { type: Array },

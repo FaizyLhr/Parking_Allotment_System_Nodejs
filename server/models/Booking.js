@@ -13,7 +13,7 @@ const BookingSchema = new mongoose.Schema(
 			default: new Date(+Date.now() + 5 * 60 * 60 * 1000),
 		},
 		isPaid: { type: Boolean, default: false },
-		vehicle: [{ type: mongoose.Schema.Types.ObjectId, ref: "Vehicle" }],
+		vehicle: { type: mongoose.Schema.Types.ObjectId, ref: "Vehicle" },
 		owner: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
 		floor: { type: mongoose.Schema.Types.ObjectId, ref: "Floor" },
 	},
@@ -45,4 +45,4 @@ BookingSchema.methods.toJSON = function () {
 	};
 };
 
-module.exports = mongoose.model("Order", BookingSchema);
+module.exports = mongoose.model("Booking", BookingSchema);
